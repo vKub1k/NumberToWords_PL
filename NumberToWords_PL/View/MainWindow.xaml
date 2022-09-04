@@ -1,0 +1,53 @@
+﻿<Window x:Class="NumberToWords_PL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumberToWords_PL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="500"
+        Padding="10">
+    <Grid>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Padding="5"
+                           HorizontalAlignment="Center"
+                           Text="Wpisz liczbę (np. 100,09):">
+                </TextBlock>
+                <TextBox Grid.Column="1"
+                         Padding="5"
+                         TextChanged="TextBoxBase_OnTextChanged" />
+            </Grid>
+
+            <Separator />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                           Padding="5"
+                           HorizontalAlignment="Center"
+                           Text="Rezultat:">
+                </TextBlock>
+                <ContentControl Grid.Column="1">
+                    <Viewbox Stretch="Uniform" StretchDirection="DownOnly">
+                        <TextBlock
+                            x:Name="ResultTextBlock"
+                            Width="{Binding RelativeSource={RelativeSource FindAncestor, 
+                        AncestorType={x:Type ContentControl}},
+                        Path=ActualWidth}"
+                            TextWrapping="WrapWithOverflow">
+                        </TextBlock>
+                    </Viewbox>
+                </ContentControl>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
